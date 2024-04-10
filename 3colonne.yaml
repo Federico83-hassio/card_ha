@@ -1,0 +1,1061 @@
+title: Casa
+views:
+  - path: default_view
+    title: Home
+    theme: Catppuccin Frappe
+    cards:
+      - square: false
+        type: grid
+        cards:
+          - type: custom:minimalistic-area-card
+            title: 👩‍🍳 Cucina
+            background_color: 'no'
+            shadow: false
+            state_color: true
+            entities:
+              - entity: sensor.xiaomi_lywsd03mmc_temperatura
+              - entity: sensor.xiaomi_lywsd03mmc_umidita
+            square: false
+            card_mod:
+              style: |
+                ha-card .box .card-header {
+
+                font-weight: thin;
+                font-size: 20px;
+                --ha-card-background: rgba(255, 255, 255, 0.0); !important
+                }
+          - square: false
+            type: grid
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: switch.sonoff_1000a4c3ff
+                icon_color: red
+                fill_container: true
+                tap_action:
+                  action: toggle
+                secondary_info: none
+                layout: vertical
+                icon: phu:pendant-being
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-top: -2px; !important
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-entity-card
+                fill_container: true
+                icon_color: red
+                tap_action:
+                  action: toggle
+                primary_info: name
+                name: Led Cucina
+                layout: vertical
+                secondary_info: none
+                icon: mdi:led-strip-variant
+                entity: light.led_cucina_luce
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-top: -2px; !important
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-light-card
+                entity: light.interruttore_led_cucina
+                fill_container: true
+                layout: vertical
+                primary_info: name
+                secondary_info: none
+                icon_color: red
+                icon: mdi:led-strip-variant
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-top: -2px; !important
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+            columns: 3
+          - type: custom:minimalistic-area-card
+            title: 🚪Ingresso
+            background_color: 'no'
+            shadow: false
+            state_color: true
+            entities:
+              - entity: sensor.xiaomi_lywsd03mmc_temperatura_2
+              - entity: sensor.xiaomi_lywsd03mmc_umidita_2
+              - entity: binary_sensor.lumi_lumi_sensor_motion_iaszone
+            card_mod:
+              style: |
+                ha-card .box .card-header {
+                padding: 5px 5px;
+                font-weight: thin;
+                font-size: 20px;
+                --ha-card-background: rgba(255, 255, 255, 0.0); !important
+                }
+          - square: false
+            type: grid
+            cards:
+              - type: custom:mushroom-entity-card
+                layout: vertical
+                tap_action:
+                  action: toggle
+                secondary_info: none
+                icon_color: primary
+                icon: mdi:ceiling-light-multiple
+                entity: switch.sonoff_1000dcf5ae
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-top: -2px; !important
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-entity-card
+                entity: light.corridoio
+                layout: vertical
+                tap_action:
+                  action: toggle
+                secondary_info: none
+                icon_color: primary
+                icon: mdi:ceiling-light-multiple
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-top: -2px; !important
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-entity-card
+                entity: light.davanti
+                layout: vertical
+                tap_action:
+                  action: toggle
+                secondary_info: none
+                icon_color: primary
+                icon: mdi:coach-lamp
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-top: -2px; !important
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-entity-card
+                entity: switch.dietro
+                layout: vertical
+                tap_action:
+                  action: toggle
+                secondary_info: none
+                icon_color: primary
+                icon: mdi:coach-lamp
+                fill_container: false
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-top: -2px; !important
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+            columns: 4
+          - square: false
+            type: grid
+            cards:
+              - type: custom:minimalistic-area-card
+                title: 🏚️Rustico
+                background_color: 'no'
+                shadow: false
+                state_color: false
+                entities:
+                  - entity: sensor.power_total_usage
+                    icon: mdi:home-analytics
+                  - entity: sensor.temp_rustico_temperatura_rustico
+                  - entity: sensor.temp_rustico_umidita_rustico_2
+                card_mod:
+                  style: |
+                    ha-card .box .card-header {
+                    padding: 5px 5px;
+                    font-weight: thin;
+                    font-size: 20px;
+                    --ha-card-background: rgba(255, 255, 255, 0.0); !important
+                    }
+              - square: false
+                type: grid
+                cards:
+                  - type: custom:mushroom-entity-card
+                    entity: switch.asciugatrice
+                    fill_container: false
+                    tap_action:
+                      action: toggle
+                    icon_color: amber
+                    layout: vertical
+                    secondary_info: none
+                    icon_type: icon
+                    card_mod:
+                      style: |
+                        ha-card {
+                          margin-top: -2px; !important
+                          --chip-background: rgba(0, 0, 0, 0);
+                          --chip-box-shadow: false;        
+                         }
+                  - type: custom:mushroom-entity-card
+                    entity: switch.lavatrice
+                    fill_container: false
+                    tap_action:
+                      action: toggle
+                    icon_color: amber
+                    layout: vertical
+                    secondary_info: none
+                    card_mod:
+                      style: |
+                        ha-card {
+                          margin-top: -2px; !important
+                          --chip-background: rgba(0, 0, 0, 0);
+                          --chip-box-shadow: false;        
+                         }
+                  - type: custom:mushroom-entity-card
+                    entity: light.shelly_test
+                    icon: mdi:spotlight
+                    fill_container: true
+                    tap_action:
+                      action: toggle
+                    icon_color: amber
+                    layout: vertical
+                    secondary_info: none
+                    card_mod:
+                      style: |
+                        ha-card {
+                          margin-top: -2px; !important
+                          --chip-background: rgba(0, 0, 0, 0);
+                          --chip-box-shadow: false;        
+                         }
+                columns: 3
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-top: -2px; !important
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+            columns: 1
+          - show_current: true
+            show_forecast: false
+            type: weather-forecast
+            entity: weather.openweathermap
+            forecast_type: daily
+            name: ' '
+            secondary_info_attribute: humidity
+            card_mod:
+              style:
+                .: |
+                  ha-card {
+                  --ha-card-background: none;
+                  }
+                   ha-card .name-state .state {
+                   #color: red;
+                   font-size: 20px;
+                  }
+                   ha-card .name-state .name {
+                   color: none;
+                   font-size: 15px;
+                  }
+                  div {
+                   white-space: unset !important;
+                  }
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.team_tracker
+                state: IN
+            card:
+              type: custom:teamtracker-card
+              entity: sensor.team_tracker
+              outline: false
+              outline_color: none
+              show_timeouts: false
+              show_rank: false
+              card_mod:
+                style:
+                  .: |
+                    ha-card {
+                    --ha-card-background: rgba(0, 0, 0, 0); !important
+                    }
+                    ha-card .gamedate{
+                    font-size: 22px;
+                          }
+                    ha-card .gametime {
+                    font-size: 10px;
+                    height: 1px;
+                    }
+                    ha-card .card {
+                    position: relative;
+                    padding-top: 5px;
+                    font-weight: 1;
+                    border-radius: var(--ha-card-border-radius, 19px);
+                    }
+                     ha-card .pre-row1 {
+                     display: none
+                    }
+                     ha-card .pre-row2 {
+                     display: none
+                    }
+                     ha-card .post-row1{
+                     display: none
+                     }
+                     ha-card .pre-row3 {
+                     display: none;
+                    }
+                     ha-card .team img {
+                     max-width: 60px;
+                    }
+                     ha-card .opponent-bg {
+                     opacity: 0.08;
+                     position: absolute;
+                     top: -3px;
+                     right: -5%;
+                     width: 35%;
+                     z-index: 1;
+                    }
+                     ha-card .team-bg {
+                     opacity: 0.08;
+                     position: absolute;
+                     top: -3px;
+                     left: -5%;
+                     width: 35%;
+                     z-index: 1;
+                    }
+                      ha-card .line {
+                      display: none;
+                     }
+                    ha-card .score {
+                    font-size: 30px;
+                    }
+                    div {
+                     white-space: unset !important;
+                    }
+                    ha-card .record {
+                    display: none
+                    }
+        columns: 1
+      - square: false
+        type: grid
+        cards:
+          - square: false
+            type: grid
+            cards:
+              - type: custom:minimalistic-area-card
+                title: 🛋️Sala
+                background_color: 'no'
+                shadow: false
+                state_color: true
+                entities:
+                  - entity: sensor.bme280_temperatura
+                  - entity: sensor.bme280_umidita
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0.0);
+                      --chip-box-shadow: false;        
+                     }
+            columns: 1
+          - square: false
+            type: grid
+            cards:
+              - type: custom:mushroom-template-card
+                tap_action:
+                  action: toggle
+                entity: light.shellyplus2pm_d4d4da09be2c_switch_0
+                icon: phu:ceiling-buckram-two
+                layout: vertical
+                icon_color: '{{ ''orange'' if is_state(entity, ''on'') else ''disabled'' }}'
+                primary: Sala 1
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-template-card
+                tap_action:
+                  action: toggle
+                entity: light.shellyplus2pm_d4d4da09be2c_switch_1
+                icon: phu:ceiling-buckram-two
+                layout: vertical
+                icon_color: '{{ ''orange'' if is_state(entity, ''on'') else ''disabled'' }}'
+                primary: Sala 2
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                secondary: ''
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-template-card
+                tap_action:
+                  action: toggle
+                entity: light.wled_sala
+                icon: mdi:led-strip-variant
+                layout: vertical
+                icon_color: '{{ ''orange'' if is_state(entity, ''on'') else ''disabled'' }}'
+                primary: Wled-Sala
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                  action: toggle
+                double_tap_action:
+                  action: none
+                secondary: ''
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-template-card
+                tap_action:
+                  action: toggle
+                entity: switch.sonoff_1000a54fa3
+                icon: mdi:power-socket-eu
+                layout: vertical
+                icon_color: '{{ ''orange'' if is_state(entity, ''on'') else ''disabled'' }}'
+                primary: Comandata
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                secondary: ''
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-template-card
+                tap_action:
+                  action: toggle
+                entity: switch.lampada_sala
+                icon: mdi:floor-lamp-torchiere
+                layout: vertical
+                icon_color: '{{ ''orange'' if is_state(entity, ''on'') else ''disabled'' }}'
+                primary: Lampada Sala
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                secondary: ''
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-template-card
+                tap_action:
+                  action: toggle
+                entity: switch.multi_sala_socket_1
+                icon: mdi:webcam
+                layout: vertical
+                icon_color: '{{ ''orange'' if is_state(entity, ''on'') else ''disabled'' }}'
+                primary: WebCam
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                secondary: ''
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-template-card
+                tap_action:
+                  action: toggle
+                entity: switch.multi_sala_socket_2
+                icon: mdi:led-strip
+                layout: vertical
+                icon_color: '{{ ''orange'' if is_state(entity, ''on'') else ''disabled'' }}'
+                primary: Lampada Led
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                secondary: ''
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-template-card
+                tap_action:
+                  action: toggle
+                entity: switch.multi_sala_socket_3
+                icon: mdi:soundbar
+                layout: vertical
+                icon_color: '{{ ''orange'' if is_state(entity, ''on'') else ''disabled'' }}'
+                primary: SoundBar
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                secondary: ''
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-template-card
+                tap_action:
+                  action: toggle
+                entity: switch.multi_sala_socket_4
+                icon: phu:lightstrip-tv
+                layout: vertical
+                icon_color: '{{ ''orange'' if is_state(entity, ''on'') else ''disabled'' }}'
+                primary: Led TV
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                secondary: ''
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-template-card
+                tap_action:
+                  action: toggle
+                entity: switch.multi_sala_socket_5
+                icon: mdi:usb
+                layout: vertical
+                icon_color: '{{ ''orange'' if is_state(entity, ''on'') else ''disabled'' }}'
+                primary: USB
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                secondary: ''
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-template-card
+                tap_action:
+                  action: toggle
+                entity: switch.stufa_a_pellet
+                icon: mdi:stove
+                layout: vertical
+                icon_color: '{{ ''orange'' if is_state(entity, ''on'') else ''disabled'' }}'
+                primary: Stufa
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                secondary: ''
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-template-card
+                tap_action:
+                  action: none
+                entity: switch.tapo_stufa
+                icon: mdi:power-socket-eu
+                layout: vertical
+                icon_color: '{{ ''orange'' if is_state(entity, ''on'') else ''disabled'' }}'
+                primary: tapo stufa
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                secondary: ''
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+            columns: 4
+          - square: false
+            type: grid
+            cards:
+              - type: custom:minimalistic-area-card
+                title: 📚Studio
+                background_color: 'no'
+                shadow: false
+                state_color: true
+                entities:
+                  - entity: sensor.display_temp_bme280_temperatura_studio
+                  - entity: sensor.display_temp_bme280_umidita_studio
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - square: false
+                type: grid
+                cards:
+                  - type: custom:mushroom-entity-card
+                    entity: switch.sonoff_1000a41708
+                    icon_color: amber
+                    fill_container: false
+                    tap_action:
+                      action: toggle
+                    layout: horizontal
+                    primary_info: name
+                    secondary_info: none
+                    card_mod:
+                      style: |
+                        ha-card {
+                          --chip-background: rgba(0, 0, 0, 0);
+                          --chip-box-shadow: false;        
+                         }
+                  - type: custom:mushroom-entity-card
+                    layout: horizontal
+                    entity: light.hyperion_tv
+                    fill_container: false
+                    tap_action:
+                      action: toggle
+                    icon_color: amber
+                    name: WledSr
+                    secondary_info: none
+                    icon_type: icon
+                    primary_info: name
+                    card_mod:
+                      style: |
+                        ha-card {
+                          --chip-background: rgba(0, 0, 0, 0);
+                          --chip-box-shadow: false;        
+                         }
+                columns: 2
+              - type: custom:minimalistic-area-card
+                title: 🚽Bagno
+                background_color: 'no'
+                shadow: false
+                state_color: true
+                entities: null
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - square: false
+                type: grid
+                cards:
+                  - type: custom:mushroom-entity-card
+                    entity: light.luce_bagno
+                    icon_color: amber
+                    fill_container: false
+                    tap_action:
+                      action: toggle
+                    layout: vertical
+                    primary_info: name
+                    secondary_info: none
+                    icon: mdi:light-recessed
+                    card_mod:
+                      style: |
+                        ha-card {
+                          --chip-background: rgba(0, 0, 0, 0);
+                          --chip-box-shadow: false;        
+                         }
+                  - type: custom:mushroom-entity-card
+                    layout: vertical
+                    entity: switch.bagno
+                    fill_container: false
+                    tap_action:
+                      action: toggle
+                    icon_color: orange
+                    secondary_info: none
+                    card_mod:
+                      style: |
+                        ha-card {
+                          --chip-background: rgba(0, 0, 0, 0);
+                          --chip-box-shadow: false;        
+                         }
+                columns: 2
+            columns: 1
+        columns: 1
+        card_mod:
+          style:
+            .: |
+              ha-card {
+              --ha-card-background: rgba(255, 255, 255, 0.1); !important
+              }
+      - square: false
+        type: grid
+        cards:
+          - type: custom:minimalistic-area-card
+            title: 🛌Camera da Letto
+            background_color: 'no'
+            shadow: false
+            state_color: true
+            entities:
+              - entity: sensor.xiaomi_lywsd03mmc_temperatura_3
+              - entity: sensor.xiaomi_lywsd03mmc_umidita_3
+              - entity: sensor.smart_socket_power
+            card_mod:
+              style: |
+                ha-card {
+                  --chip-background: rgba(0, 0, 0, 0);
+                  --chip-box-shadow: false;        
+                 }
+          - square: false
+            type: grid
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: switch.camera_da_letto
+                icon_color: amber
+                fill_container: true
+                tap_action:
+                  action: toggle
+                name: Letto
+                primary_info: name
+                secondary_info: none
+                layout: vertical
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-entity-card
+                layout: vertical
+                entity: light.led_camera_luce
+                fill_container: true
+                tap_action:
+                  action: toggle
+                icon_color: amber
+                name: LedCamera
+                primary_info: name
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-entity-card
+                layout: vertical
+                icon: ''
+                fill_container: true
+                tap_action:
+                  action: toggle
+                icon_color: amber
+                name: LedLamp
+                primary_info: name
+                secondary_info: none
+                entity: light.wled
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-entity-card
+                layout: vertical
+                entity: switch.sonoff_1000dcc2ef
+                icon: mdi:led-strip-variant
+                fill_container: true
+                tap_action:
+                  action: toggle
+                icon_color: amber
+                primary_info: name
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-entity-card
+                layout: vertical
+                entity: light.lampada_stefania
+                icon: ''
+                fill_container: true
+                tap_action:
+                  action: toggle
+                icon_color: amber
+                name: L.Stefy
+                primary_info: name
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-entity-card
+                layout: vertical
+                entity: switch.smart_socket_socket_1
+                icon: ''
+                fill_container: true
+                tap_action:
+                  action: toggle
+                icon_color: amber
+                primary_info: name
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-entity-card
+                layout: vertical
+                entity: switch.smart_socket_socket_2
+                icon: ''
+                fill_container: true
+                tap_action:
+                  action: toggle
+                icon_color: amber
+                name: Ferro
+                primary_info: name
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+            columns: 3
+          - type: custom:minimalistic-area-card
+            title: 🛌Cameretta
+            background_color: 'no'
+            shadow: false
+            state_color: true
+            entities:
+              - sensor.ewelink_th01_temperatura
+              - sensor.ewelink_th01_umidita
+            card_mod:
+              style: |
+                ha-card {
+                  --chip-background: rgba(0, 0, 0, 0);
+                  --chip-box-shadow: false;        
+                 }
+          - square: false
+            type: grid
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: light.osram_classic_a60_w_clear_lightify_light
+                icon_color: amber
+                fill_container: false
+                tap_action:
+                  action: toggle
+                layout: vertical
+                icon: mdi:floor-lamp
+                name: Lampada
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-entity-card
+                layout: vertical
+                entity: switch.jacopo_socket_1
+                fill_container: false
+                tap_action:
+                  action: toggle
+                icon_color: amber
+                icon: mdi:bottle-tonic-skull-outline
+                name: Zanzarino
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-light-card
+                layout: vertical
+                fill_container: false
+                primary_info: name
+                secondary_info: none
+                icon: phu:ceiling-lamp
+                entity: light.camera_jacopo
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+              - type: custom:mushroom-light-card
+                entity: light.cloud_principale
+                fill_container: false
+                layout: vertical
+                primary_info: name
+                secondary_info: none
+                use_light_color: true
+                icon: phu:light-strip
+                name: Cloud
+                card_mod:
+                  style: |
+                    ha-card {
+
+                      --chip-background: rgba(0, 0, 0, 0);
+                      --chip-box-shadow: false;        
+                     }
+            columns: 4
+            card_mod:
+              style: |
+                ha-card {
+                  --chip-background: rgba(0, 0, 0, 0);
+                  --chip-box-shadow: false;        
+                 }
+          - type: custom:minimalistic-area-card
+            title: 🔋batteria☀️produzione🏠casa☀️immissione☀️ftv
+            background_color: 'yes'
+            shadow: false
+            state_color: true
+            entities:
+              - entity: sensor.byd_battery_box_premium_hv_state_of_charge
+              - entity: sensor.energia_oggi_fvt
+                icon: mdi:gauge
+              - entity: sensor.corrente_power
+              - entity: sensor.energia_oggi_immessa
+                icon: mdi:transmission-tower-export
+              - entity: sensor.sensore_potenza_ftv_w
+            darken_image: false
+            card_mod:
+              style: |
+                ha-card .box .card-header {
+                padding: 5px 5px;
+                font-weight: thin;
+                font-size: 16px;
+                --ha-card-background: rgba(255, 255, 255, 0.0); !important
+                }
+          - square: false
+            type: grid
+            cards:
+              - square: false
+                columns: 2
+                type: grid
+                cards:
+                  - card:
+                      card_mod:
+                        style: >
+                          ha-card .box .card-header {
+
+                          padding: 5px 5px;
+
+                          font-weight: thin;
+
+                          font-size: 20px;
+
+                          --ha-card-background: rgba(255, 255, 255, 0.0);
+                          !important
+
+                          }
+                      type: entities
+                      title: ⠀🗑️Oggi🗑️
+                    show_empty: true
+                    type: entity-filter
+                    entities:
+                      - entity: sensor.organico
+                        state_filter:
+                          - operator: '=='
+                            value: '0'
+                      - entity: sensor.carta_cartone
+                        state_filter:
+                          - operator: '=='
+                            value: '0'
+                      - entity: sensor.pla_met_vet
+                        state_filter:
+                          - operator: '=='
+                            value: '0'
+                      - entity: sensor.residuo_urbano
+                        state_filter:
+                          - operator: '=='
+                            value: '0'
+                  - card:
+                      card_mod:
+                        style: |
+                          ha-card .box .card-header {
+                          font-size: 10px; !important
+                          color: red; !important
+                          }
+                      type: entities
+                      title: 🗑️Domani🗑️
+                    show_empty: true
+                    type: entity-filter
+                    entities:
+                      - entity: sensor.organico
+                        state_filter:
+                          - operator: '=='
+                            value: '1'
+                      - entity: sensor.carta_cartone
+                        state_filter:
+                          - operator: '=='
+                            value: '1'
+                      - entity: sensor.pla_met_vet
+                        state_filter:
+                          - operator: '=='
+                            value: '1'
+                      - entity: sensor.residuo_urbano
+                        state_filter:
+                          - operator: '=='
+                            value: '1'
+                    card_mod:
+                      style: |
+                        ha-card {
+                        margin-top: -5px; !important
+                        margin-left: -5px;
+                        margin-right: -5px;
+                        font-size: 20px; !important
+                        --chip-background: rgba(0, 0, 0, 0);
+                        --chip-box-shadow: false;        
+                         }
+            columns: 1
+        columns: 1
+    layout:
+      column_widths: 200
+      max_cols: 3
+    icon: mdi:home-analytics
+    type: custom:horizontal-layout
+    card_mod: null
+    style: null
+    .: |
+      ha-card {
+      --ha-card-background: rgba(255, 255, 255, 0.1); !important
+      }
