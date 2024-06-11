@@ -1,0 +1,614 @@
+type: vertical-stack
+cards:
+  - square: false
+    type: grid
+    cards:
+      - type: entities
+        show_header_toggle: true
+        entities:
+          - type: custom:hui-element
+            card_type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: picture-entity
+                    entity: binary_sensor.ac_asciugatrice
+                    show_name: false
+                    show_state: true
+                    state_image:
+                      'on': /local/foto-pkg/Asciugatrice-stile.gif
+                      'off': /local/foto-pkg/Asciugatrice-stile.png
+                    tap_action:
+                      action: fire-dom-event
+                      browser_mod:
+                        service: browser_mod.popup
+                        data:
+                          title: Ultimi 7 Giorni
+                          style: >
+                            --popup-background-color:
+                            var(--secondary-background-color);
+                            --dialog-backdrop-filter: blur(2em)
+                            brightness(0.75);
+                          content:
+                            type: vertical-stack
+                            cards:
+                              - type: entities
+                                entities:
+                                  - style:
+                                      background: '#62717b'
+                                      height: 1px
+                                      margin-left: auto
+                                      margin-right: auto
+                                    type: divider
+                                  - entity: sensor.lunedi_costo_asciugatrice
+                                    name: Lunedi
+                                    type: custom:multiple-entity-row
+                                    state_header: EURO
+                                    state_color: false
+                                    icon: mdi:calendar
+                                    entities:
+                                      - entity: sensor.lunedi_consumo_asciugatrice
+                                        attribute: asciugatrici
+                                        name: ASCIUGATRICI
+                                      - entity: sensor.lunedi_consumo_asciugatrice
+                                        attribute: tempo
+                                        name: TEMPO
+                                      - entity: sensor.lunedi_consumo_asciugatrice
+                                        name: CONSUMO
+                                  - type: divider
+                                  - entity: sensor.martedi_costo_asciugatrice
+                                    name: Martedi
+                                    type: custom:multiple-entity-row
+                                    state_header: EURO
+                                    state_color: false
+                                    icon: mdi:calendar
+                                    entities:
+                                      - entity: sensor.martedi_consumo_asciugatrice
+                                        attribute: asciugatrici
+                                        name: ASCIUGATRICI
+                                      - entity: sensor.martedi_consumo_asciugatrice
+                                        attribute: tempo
+                                        name: TEMPO
+                                      - entity: sensor.martedi_consumo_asciugatrice
+                                        name: CONSUMO
+                                  - type: divider
+                                  - entity: sensor.mercoledi_costo_asciugatrice
+                                    name: Mercoledi
+                                    type: custom:multiple-entity-row
+                                    state_header: EURO
+                                    state_color: false
+                                    icon: mdi:calendar
+                                    entities:
+                                      - entity: sensor.mercoledi_consumo_asciugatrice
+                                        attribute: asciugatrici
+                                        name: ASCIUGATRICI
+                                      - entity: sensor.mercoledi_consumo_asciugatrice
+                                        attribute: tempo
+                                        name: TEMPO
+                                      - entity: sensor.mercoledi_consumo_asciugatrice
+                                        name: CONSUMO
+                                  - type: divider
+                                  - entity: sensor.giovedi_costo_asciugatrice
+                                    name: Giovedi
+                                    type: custom:multiple-entity-row
+                                    state_header: EURO
+                                    state_color: false
+                                    icon: mdi:calendar
+                                    entities:
+                                      - entity: sensor.giovedi_consumo_asciugatrice
+                                        attribute: asciugatrici
+                                        name: ASCIUGATRICI
+                                      - entity: sensor.giovedi_consumo_asciugatrice
+                                        attribute: tempo
+                                        name: TEMPO
+                                      - entity: sensor.giovedi_consumo_asciugatrice
+                                        name: CONSUMO
+                                  - type: divider
+                                  - entity: sensor.venerdi_costo_asciugatrice
+                                    name: Venerdi
+                                    type: custom:multiple-entity-row
+                                    state_header: EURO
+                                    state_color: false
+                                    icon: mdi:calendar
+                                    entities:
+                                      - entity: sensor.venerdi_consumo_asciugatrice
+                                        attribute: asciugatrici
+                                        name: ASCIUGATRICI
+                                      - entity: sensor.venerdi_consumo_asciugatrice
+                                        attribute: tempo
+                                        name: TEMPO
+                                      - entity: sensor.venerdi_consumo_asciugatrice
+                                        name: CONSUMO
+                                  - type: divider
+                                  - entity: sensor.sabato_costo_asciugatrice
+                                    name: Sabato
+                                    type: custom:multiple-entity-row
+                                    state_header: EURO
+                                    state_color: false
+                                    icon: mdi:calendar
+                                    entities:
+                                      - entity: sensor.sabato_consumo_asciugatrice
+                                        attribute: asciugatrici
+                                        name: ASCIUGATRICI
+                                      - entity: sensor.sabato_consumo_asciugatrice
+                                        attribute: tempo
+                                        name: TEMPO
+                                      - entity: sensor.sabato_consumo_asciugatrice
+                                        name: CONSUMO
+                                  - type: divider
+                                  - entity: sensor.domenica_costo_asciugatrice
+                                    name: Domenica
+                                    type: custom:multiple-entity-row
+                                    state_header: EURO
+                                    state_color: false
+                                    icon: mdi:calendar
+                                    entities:
+                                      - entity: sensor.domenica_consumo_asciugatrice
+                                        attribute: asciugatrici
+                                        name: ASCIUGATRICI
+                                      - entity: sensor.domenica_consumo_asciugatrice
+                                        attribute: tempo
+                                        name: TEMPO
+                                      - entity: sensor.domenica_consumo_asciugatrice
+                                        name: CONSUMO
+                                  - style:
+                                      background: '#62717b'
+                                      height: 1px
+                                      margin-left: auto
+                                      margin-right: auto
+                                    type: divider
+        state_color: true
+        card_mod:
+          style:
+            .: |
+              ha-card {
+              --ha-card-background: rgba(0, 0, 0, 0); !important
+              }
+                ha-card .line {
+                display: none;
+               }
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            layout: icon_name_state2nd
+            entity: binary_sensor.ac_asciugatrice
+            name: Stato Asciugatrice
+            show_icon: true
+            show_state: true
+            styles:
+              grid:
+                - grid-template-columns: 50px auto
+              icon:
+                - padding: 0px 0px
+                - height: 30px
+                - width: 30px
+              card:
+                - '--ha-card-background': rgba(0, 0, 0, 0.0)
+                - '--ha-card-box-shadow': none
+                - '--ha-card-border-width': 0px
+              state:
+                - padding: 0px 10px
+                - justify-self: start
+                - font-family: Roboto, sans-serif
+                - font-size: 15px
+              name:
+                - padding: 0px 10px
+                - justify-self: start
+                - color: var(--primary-text-color)
+          - type: custom:button-card
+            entity: binary_sensor.ac_asciugatrice
+            state_color: false
+            icon: mdi:history
+            show_name: false
+            show_icon: true
+            show_state: true
+            show_label: true
+            label: >
+              [[[ return
+              states['sensor.time_on_asciugatrice'].attributes.Asciugatura; ]]]
+            state_display: >
+              [[[ return entity.state === 'on' ? 'Durata Asciugatura': 'Durata
+              Ultimo'; ]]]
+            styles:
+              grid:
+                - grid-template-areas: '"i s " "i l"'
+                - grid-template-columns: 50px auto
+              icon:
+                - padding: 0px 0px
+                - color: var(--primary-text-color)
+                - height: 30px
+                - width: 30px
+              card:
+                - '--ha-card-background': rgba(0, 0, 0, 0.0)
+                - '--ha-card-box-shadow': none
+                - '--ha-card-border-width': 0px
+              label:
+                - padding: 0px 10px
+                - justify-self: start
+                - font-family: Roboto, sans-serif
+                - font-size: 15px
+              state:
+                - padding: 0px 10px
+                - justify-self: start
+                - color: var(--primary-text-color)
+          - type: custom:button-card
+            entity: binary_sensor.ac_asciugatrice
+            state_color: false
+            icon: mdi:counter
+            show_name: false
+            show_icon: true
+            show_state: true
+            show_label: true
+            label: >
+              [[[ return
+              states['sensor.time_on_asciugatrice'].attributes.consumo_asciugatura;
+              ]]]
+            state_display: >
+              [[[ return entity.state === 'on' ? 'Consumo Asciugatura': 'Consumo
+              Ultimo'; ]]]
+            styles:
+              grid:
+                - grid-template-areas: '"i s " "i l"'
+                - grid-template-columns: 50px auto
+              icon:
+                - padding: 0px 0px
+                - color: var(--primary-text-color)
+                - height: 30px
+                - width: 30px
+              card:
+                - '--ha-card-background': rgba(0, 0, 0, 0.0)
+                - '--ha-card-box-shadow': none
+                - '--ha-card-border-width': 0px
+              label:
+                - padding: 0px 10px
+                - justify-self: start
+                - font-family: Roboto, sans-serif
+                - font-size: 15px
+              state:
+                - padding: 0px 10px
+                - justify-self: start
+                - color: var(--primary-text-color)
+          - type: custom:button-card
+            entity: binary_sensor.ac_asciugatrice
+            state_color: false
+            show_name: false
+            show_icon: true
+            show_state: true
+            show_label: true
+            label: >
+              [[[ return
+              states['sensor.time_on_asciugatrice'].attributes.costo_asciugatura+('
+              €'); ]]]
+            icon: mdi:currency-eur
+            state_display: >
+              [[[ return entity.state === 'on' ? 'Costo Asciugatura': 'Costo
+              Ultimo'; ]]]
+            styles:
+              grid:
+                - grid-template-areas: '"i s " "i l"'
+                - grid-template-columns: 50px auto
+              icon:
+                - padding: 0px 0px
+                - color: var(--primary-text-color)
+                - height: 30px
+                - width: 30px
+              card:
+                - '--ha-card-background': rgba(0, 0, 0, 0.0)
+                - '--ha-card-box-shadow': none
+                - '--ha-card-border-width': 0px
+              label:
+                - padding: 0px 10px
+                - justify-self: start
+                - font-family: Roboto, sans-serif
+                - font-size: 15px
+              state:
+                - padding: 0px 10px
+                - justify-self: start
+                - color: var(--primary-text-color)
+    columns: 2
+  - type: custom:mini-graph-card
+    entities:
+      - entity: sensor.asciugatrice_power
+    color: rgba (0, 0, 0, 0)
+    hours_to_show: 6
+    points_per_hour: 60
+    update_interval: 60
+    cache: true
+    font_size: 60
+    height: 100
+    line_width: 2
+    animate: true
+    color_thresholds:
+      - value: 0,0
+        color: lime
+      - value: 150
+        color: green
+      - value: 250
+        color: orange
+      - value: 350
+        color: red
+    card_mod:
+      style:
+        .: |
+          ha-card {
+          --ha-card-background: rgba(250, 250, 250, 0); !important
+          }
+    show:
+      name: false
+      icon: false
+      state: true
+      legend: false
+      fill: true
+  - type: custom:paper-buttons-row
+    buttons:
+      - icon: hass:cog-outline
+        state: '{{ states(''group.notifiche_asciugatrice'') }}'
+        state_styles:
+          'on':
+            icon:
+              color: var(--paper-item-icon-active-color)
+        tap_action:
+          action: fire-dom-event
+          browser_mod:
+            service: browser_mod.popup
+            data:
+              title: Impostazioni
+              style: |
+                --popup-background-color: var(--secondary-background-color);
+                --dialog-backdrop-filter: blur(2em) brightness(0.75);
+              content:
+                type: entities
+                entities:
+                  - style:
+                      background: '#62717b'
+                      height: 1px
+                      margin-left: auto
+                      margin-right: auto
+                    type: divider
+                  - entity: sensor.time
+                    name: Orologio
+                  - style:
+                      background: '#62717b'
+                      height: 1px
+                      margin-left: auto
+                      margin-right: auto
+                    type: divider
+                  - type: custom:multiple-entity-row
+                    entity: input_datetime.orario_fine_notifiche_asciugatrice
+                    icon: mdi:timer
+                    name: Fascia Oraria Notifiche
+                    state_header: FINE
+                    entities:
+                      - entity: input_datetime.orario_inizio_notifiche_asciugatrice
+                        name: INIZIO
+                  - entity: input_boolean.notify_push_asciugatrice
+                    type: custom:multiple-entity-row
+                    name: Notifiche
+                    icon: mdi:cellphone-message
+                    state_header: PUSH
+                    toggle: true
+                    entities:
+                      - entity: input_boolean.notify_google_asciugatrice
+                        name: GOOGLE
+                        toggle: true
+                      - entity: input_boolean.notify_alexa_asciugatrice
+                        name: ALEXA
+                        toggle: true
+                  - style:
+                      background: '#62717b'
+                      height: 1px
+                      margin-left: auto
+                      margin-right: auto
+                    type: divider
+                  - type: custom:multiple-entity-row
+                    entity: binary_sensor.ac_asciugatrice
+                    icon: mdi:flash
+                    name: Energia
+                    state_header: STATO
+                    state_color: true
+                    entities:
+                      - entity: input_boolean.switch_asciugatrice
+                        name: SWITCH
+                        toggle: true
+                      - entity: input_number.soglia_lavoro_asciugatrice_w
+                        name: SOGLIA
+                      - entity: input_number.tempo_innesco_asciugatrice_m
+                        name: RITARDO
+                  - type: divider
+                  - entity: automation.asciugatrice_off_automatico
+                    type: custom:multiple-entity-row
+                    name: Switch Auto OFF
+                    state_header: OFF/ON
+                    state_color: true
+                    toggle: true
+                    icon: mdi:washing-machine
+                    entities:
+                      - entity: input_datetime.asciugatrice_off
+                        name: 'OFF'
+                  - type: divider
+                  - entity: input_boolean.manutenzioni_asciugatrice
+                    type: custom:multiple-entity-row
+                    name: Manutenzione
+                    state_header: OFF/ON
+                    state_color: true
+                    toggle: true
+                    icon: mdi:washing-machine
+                    entities:
+                      - entity: input_number.asciugatrici_manutenzione_asciugatrice
+                        name: N.ASCIUGATRICI
+                      - entity: input_number.mesi_manutenzione_asciugatrice
+                        name: N.MESI
+                  - style:
+                      background: '#62717b'
+                      height: 1px
+                      margin-left: auto
+                      margin-right: auto
+                    type: divider
+                  - entity: input_number.costo_energia_asciugatrice
+                    name: Costo Energia
+                  - style:
+                      background: '#62717b'
+                      height: 1px
+                      margin-left: auto
+                      margin-right: auto
+                    type: divider
+      - icon: hass:chart-line
+        state: '{{ states(''xxx'') }}'
+        state_styles:
+          'on':
+            icon:
+              color: var(--paper-item-icon-active-color)
+        tap_action:
+          action: fire-dom-event
+          browser_mod:
+            service: browser_mod.popup
+            data:
+              title: Statistiche
+              style: |
+                --popup-background-color: var(--secondary-background-color);
+                --dialog-backdrop-filter: blur(2em) brightness(0.75);
+              content:
+                type: entities
+                entities:
+                  - style:
+                      background: '#62717b'
+                      height: 1px
+                      margin-left: auto
+                      margin-right: auto
+                    type: divider
+                  - entity: sensor.time_on_asciugatrice
+                    attribute: costo_asciugatura
+                    type: custom:multiple-entity-row
+                    icon: mdi:washing-machine
+                    unit: €
+                    name: Asciugatura
+                    state_header: EURO
+                    state_color: true
+                    entities:
+                      - entity: sensor.time_on_asciugatrice
+                        attribute: terminato
+                        name: STATO
+                      - type: attribute
+                        entity: sensor.time_on_asciugatrice
+                        name: TEMPO
+                        attribute: Asciugatura
+                      - entity: sensor.time_on_asciugatrice
+                        attribute: costo_asciugatura
+                        name: CONSUMO
+                  - type: divider
+                  - entity: sensor.time_on_asciugatrice
+                    attribute: costo_consumo_giornaliero_asciugatrice
+                    type: custom:multiple-entity-row
+                    unit: €
+                    name: Oggi
+                    state_header: EURO
+                    icon: mdi:calendar-blank
+                    state_color: true
+                    entities:
+                      - entity: sensor.cicli_oggi_asciugatrice
+                        name: ASCIUGATRICI
+                      - type: attribute
+                        attribute: Oggi
+                        entity: sensor.time_on_asciugatrice
+                        name: TEMPO
+                      - entity: sensor.energy_oggi_asciugatrice
+                        name: CONSUMO
+                  - type: divider
+                  - entity: sensor.time_on_asciugatrice
+                    attribute: costo_consumo_ieri_asciugatrice
+                    unit: €
+                    name: Ieri
+                    type: custom:multiple-entity-row
+                    state_header: EURO
+                    state_color: true
+                    entities:
+                      - entity: sensor.cicli_oggi_asciugatrice
+                        name: ASCIUGATRICI
+                        attribute: last_period
+                      - type: attribute
+                        attribute: Ieri
+                        entity: sensor.time_on_asciugatrice
+                        name: TEMPO
+                      - entity: sensor.energy_oggi_asciugatrice
+                        attribute: last_period
+                        unit: kWh
+                        name: CONSUMO
+                  - type: divider
+                  - entity: sensor.time_on_asciugatrice
+                    attribute: costo_consumo_mensile_asciugatrice
+                    unit: €
+                    type: custom:multiple-entity-row
+                    icon: mdi:calendar-today
+                    name: Mese
+                    state_header: EURO
+                    state_color: true
+                    entities:
+                      - entity: sensor.cicli_mese_asciugatrice
+                        name: ASCIUGATRICI
+                      - type: attribute
+                        attribute: Mese
+                        entity: sensor.time_on_asciugatrice
+                        name: TEMPO
+                      - entity: sensor.energy_mese_asciugatrice
+                        name: CONSUMO
+                  - type: divider
+                  - entity: sensor.time_on_asciugatrice
+                    attribute: costo_consumo_annuale_asciugatrice
+                    unit: €
+                    type: custom:multiple-entity-row
+                    icon: mdi:calendar-month
+                    name: Anno
+                    state_header: EURO
+                    state_color: true
+                    entities:
+                      - entity: sensor.cicli_anno_asciugatrice
+                        name: ASCIUGATRICI
+                      - type: attribute
+                        attribute: Anno
+                        entity: sensor.time_on_asciugatrice
+                        name: TEMPO
+                      - entity: sensor.energy_anno_asciugatrice
+                        name: CONSUMO
+                  - style:
+                      background: '#62717b'
+                      height: 1px
+                      margin-left: auto
+                      margin-right: auto
+                    type: divider
+                  - entity: input_boolean.manutenzioni_asciugatrice
+                    type: custom:multiple-entity-row
+                    icon: mdi:hammer-screwdriver
+                    name: Manutenzione
+                    state_header: AVVISO
+                    entities:
+                      - type: attribute
+                        entity: counter.manutenzioni_asciugatrice
+                        name: ASCIUGATRICI
+                      - entity: input_datetime.manutenzione_asciugatrice
+                        format: date
+                        name: SCADENZA
+                  - style:
+                      background: '#62717b'
+                      height: 1px
+                      margin-left: auto
+                      margin-right: auto
+                    type: divider
+                  - type: custom:multiple-entity-row
+                    entity: input_text.data_reset_asciugatrice
+                    name: Reset Contatori
+                    icon: mdi:restart
+                    state_header: ULTIMO RESET
+                    state_color: true
+                    entities:
+                      - type: button
+                        name: ESEGUI
+                        icon: mdi:button-pointer
+                        tap_action:
+                          action: call-service
+                          service: script.reset_sensori_asciugatrice
+                  - style:
+                      background: '#62717b'
+                      height: 1px
+                      margin-left: auto
+                      margin-right: auto
+                    type: divider
